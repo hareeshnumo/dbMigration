@@ -44,4 +44,10 @@ jobs:
     - name: Setup dependencies
       run: npm install
     - name: run node script
+      env:
+        password: ${{ secrets.PASSWORD}}
+        user: ${{ secrets.USER}}
+        userPort: ${{ secrets.USER_PORT}}
+        notificationPort: ${{ secrets.NOTIFICATION_PORT}}
+        assetPort: ${{ secrets.ASSET_PORT}}
       run: node index.js ${{inputs.MongoURI}} ${{inputs.MYSQL_USER_HOST}} ${{inputs.MYSQL_PASSWORD}} ${{inputs.MYSQL_BILLING_HOST}} ${{inputs.MYSQL_NOTIFICATION_HOST}}
