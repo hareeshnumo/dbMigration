@@ -37,4 +37,4 @@ jobs:
     - name: Setup dependencies
       run: npm install
     - name: run node script
-      run: node index.js ${{inputs.environment}} ${{inputs.cpName}}
+      run: node index.js ${{inputs.environment}} ${{inputs.name}}
