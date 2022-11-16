@@ -6,17 +6,24 @@ on:
   workflow_dispatch:
     # Inputs the workflow accepts.
     inputs:
-      environment:
-        description: environment
+      MongoURI:
+        description: MongoURI
         default: ''
-        required: true 
-        type: choice
-        options:
-          - TEST_CMS_3
-          - TEST_CMS_2
-          - DEV_FUSION
-      name:
-        description: name
+        required: true
+      MYSQL_USER_HOST:
+        description: MYSQL_USER_HOST
+        default: ''
+        required: true
+      MYSQL_PASSWORD:
+        description: MYSQL_PASSWORD
+        default: ''
+        required: true
+      MYSQL_BILLING_HOST:
+        description: MYSQL_BILLING_HOST
+        default: ''
+        required: true
+      MYSQL_NOTIFICATION_HOST:
+        description: MYSQL_NOTIFICATION_HOST
         default: ''
         required: true
       
@@ -37,4 +44,4 @@ jobs:
     - name: Setup dependencies
       run: npm install
     - name: run node script
-      run: node index.js ${{inputs.environment}} ${{inputs.cpName}}
+      run: node index.js ${{inputs.MongoURI}} ${{inputs.MYSQL_USER_HOST}} ${{inputs.MYSQL_PASSWORD}} ${{inputs.MYSQL_BILLING_HOST}} ${{inputs.MYSQL_NOTIFICATION_HOST}}
